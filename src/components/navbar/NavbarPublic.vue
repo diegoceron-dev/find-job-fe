@@ -3,7 +3,7 @@
 <template>
   <!-- component -->
   <nav
-    class="bg-gradient-to-r from-blue-600 to-blue-400 w-full flex relative justify-between items-center mx-auto px-8 h-20"
+    class="bg-gradient-to-r from-slate-600 to-slate-400 w-full flex relative justify-between items-center mx-auto px-8 h-20"
   >
     <!-- logo -->
     <div class="inline-flex">
@@ -20,7 +20,7 @@
           class="flex hidden sm:block flex-initial flex-grow-0 justify-start px-2 mr-4 items-center"
         >
           <a
-            class="inline-block py-2 px-3 hover:bg-blue-400 border rounded-full hover:shadow-lg"
+            class="inline-block py-2 px-3 hover:bg-slate-400 border rounded-full hover:shadow-lg"
             href="#"
           >
             <div
@@ -35,7 +35,7 @@
           <div class="inline relative">
             <button
               type="button"
-              class="hover:bg-blue-400  inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
+              class="hover:bg-slate-400  inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
             >
               <div class="pl-1">
                 <svg
