@@ -1,9 +1,13 @@
 <script setup lang="ts">
+
+import '../../styles/globals.css'
+import ModeToggle  from '@/components/theme/ModeToggle.vue';
+
 </script>
 <template>
   <!-- component -->
   <nav
-    class="bg-gradient-to-r from-slate-600 to-slate-400 w-full flex relative justify-between items-center mx-auto px-8 h-20"
+    class="dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-700 bg-gradient-to-r from-blue-500 to-blue-400  border-b border-blue-300 dark:border-slate-500 w-full flex relative justify-between items-center mx-auto px-8 h-20"
   >
     <!-- logo -->
     <div class="inline-flex">
@@ -14,28 +18,15 @@
     <!-- end logo -->
 
     <!-- login -->
-    <div class="flex-initial">
+    <div class="flex-auto">
       <div class="flex justify-end items-center relative">
-        <div
-          class="flex hidden sm:block flex-initial flex-grow-0 justify-start px-2 mr-4 items-center"
-        >
-          <a
-            class="inline-block py-2 px-3 hover:bg-slate-400 border rounded-full hover:shadow-lg"
-            href="#"
-          >
-            <div
-              class="flex text-white items-center relative cursor-pointer whitespace-nowrap"
-            >
-              Become a employer
-            </div>
-          </a>
-        </div>
 
         <div class="block">
           <div class="inline relative">
-            <button
+            <a href="/login">
+              <button
               type="button"
-              class="hover:bg-slate-400  inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
+              class="hover:bg-blue-400  inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
             >
               <div class="pl-1">
                 <svg
@@ -82,10 +73,15 @@
                 </svg>
               </div>
             </button>
+            </a>
           </div>
         </div>
       </div>
     </div>
     <!-- end login -->
+
+    <div class="ml-2">
+      <ModeToggle />
+    </div>
   </nav>
 </template>

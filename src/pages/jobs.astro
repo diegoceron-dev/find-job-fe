@@ -1,0 +1,24 @@
+---
+import Search from "@/components/search/Search.vue";
+import PublicDefault from "@/layouts/public/PublicDefault.astro";
+import Example from "@/components/mail/Example.vue";
+import "@/styles/globals.css";
+---
+
+<PublicDefault title="FindJob - Encuentra tu próximo empelo">
+  <section>
+    <!-- Search -->
+   <!--  <div class="flex flex-col items-center">
+      <Search client:visible />
+    </div> -->
+    
+    <div class="flex flex-col items-center">
+      <Example client:load/>
+    </div>
+  </section>
+</PublicDefault>
+
+<style>
+  main {
+  }
+</style>

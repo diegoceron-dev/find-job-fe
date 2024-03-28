@@ -5,39 +5,36 @@ import "@/styles/globals.css";
 ---
 
 <PublicDefault title="FindJob - Encuentra tu próximo empelo">
-  <section class="pt-[50px] pb-[150px] animate-once animate-ease-in">
-    <!-- Logo -->
-    <div class="flex flex-col items-center">
-      <img
-        src="https://i.ibb.co/KKBpR3Y/Sin-ti-tulo.png"
-        alt="logo"
-        width="450px"
-      />
-    </div>
-
-    <!-- Search -->
-    <div class="flex flex-col items-center">
-      <Search client:visible />
-    </div>
+  <section class="animate-once animate-ease-in">
 
     <!-- Title -->
-    <div class="pt-[100px] flex flex-col text-center">
-      <p
-        class="text-2xl font-medium text-slate-600"
-        style="text-shadow: 0.5px 1px 0.5px gray;"
-      >
-        La oportunidad que estas buscando
-      </p>
+    <div class="hidden flex flex-col text-center pb-8">
       <p
         class="text-4xl font-medium text-slate-700"
         style="text-shadow: 0.5px 1px 0.5px gray;"
       >
-        ¡esta aquí!
+        Encuentra
+      </p>
+      <p
+        class="text-2xl font-medium text-slate-600"
+        style="text-shadow: 0.5px 1px 0.5px gray;"
+      >
+        ¡tú próxima oportunidad aqui!
       </p>
     </div>
 
+    <!-- Search -->
+    <div class="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-12">
+      <form>
+        <div class="relative">
+        <Search client:load />
+        </div>
+      </form>
+    </div>
+    
+
     <!-- Info -->
-    <div class="">
+    <div class="hidden">
       <p
         class="text-center text-slate-950 text-3xl hidden"
         style="text-shadow: 0.5px 1px 0.5px gray;"
@@ -80,5 +77,6 @@ import "@/styles/globals.css";
 </PublicDefault>
 
 <style>
-  main {}
+  main {
+  }
 </style>
