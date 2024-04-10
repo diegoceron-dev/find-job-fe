@@ -1,4 +1,6 @@
 ---
+import RecentlyAdded from "@/components/cards/RecentlyAdded.vue";
+import TopCompanies from "@/components/cards/TopCompanies.vue";
 import Search from "@/components/search/Search.vue";
 import PublicDefault from "@/layouts/public/PublicDefault.astro";
 import "@/styles/globals.css";
@@ -6,32 +8,24 @@ import "@/styles/globals.css";
 
 <PublicDefault title="FindJob - Encuentra tu próximo empelo">
   <section class="animate-once animate-ease-in">
-
-    <!-- Title -->
-    <div class="hidden flex flex-col text-center pb-8">
-      <p
-        class="text-4xl font-medium text-slate-700"
-        style="text-shadow: 0.5px 1px 0.5px gray;"
-      >
-        Encuentra
-      </p>
-      <p
-        class="text-2xl font-medium text-slate-600"
-        style="text-shadow: 0.5px 1px 0.5px gray;"
-      >
-        ¡tú próxima oportunidad aqui!
-      </p>
-    </div>
-
     <!-- Search -->
-    <div class="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-12">
+    <div
+      class="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    >
       <form>
         <div class="relative">
-        <Search client:load />
+          <Search client:load />
         </div>
       </form>
     </div>
-    
+
+    <div>
+      <RecentlyAdded client:load />
+    </div>
+
+    <div>
+      <TopCompanies client:load />
+    </div>
 
     <!-- Info -->
     <div class="hidden">

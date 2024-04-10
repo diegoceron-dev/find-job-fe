@@ -2,18 +2,68 @@
 import { Search } from "lucide-vue-next";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import useJobStore from "@/store/job";
+import type { CardJobProps } from "@/types/card-job.type";
+
+const items: CardJobProps[] = [
+  {
+    company: { id: 1, name: "Company x" },
+    job: {
+      description: "Vacante disponible para desarrollador frontend",
+      id: 1,
+      place: "MX",
+      salary: "31000",
+      title: "Frontend Developer",
+    },
+  },
+  {
+    company: { id: 2, name: "Company y" },
+    job: {
+      description: "Vacante disponible para desarrollador backend",
+      id: 2,
+      place: "US",
+      salary: "40000",
+      title: "Backend Developer",
+    },
+  },
+  {
+    company: { id: 3, name: "Company z" },
+    job: {
+      description: "Vacante disponible para diseñador UX/UI",
+      id: 3,
+      place: "CA",
+      salary: "35000",
+      title: "UX/UI Designer",
+    },
+  },
+  {
+    company: { id: 1, name: "Company x" },
+    job: {
+      description: "Vacante disponible para desarrollador frontend",
+      id: 1,
+      place: "MX",
+      salary: "31000",
+      title: "Frontend Developer",
+    },
+  },
+];
+
+onMounted(() => {});
 
 const searchValue = ref("");
 
 const searchJob = () => {
-  window.location.href = "/jobs";
+  useJobStore.getState().addJobList(items);
+  console.log(useJobStore.getState().jobList);
+  if (window.location.pathname !== "/jobs") window.location.href = "/jobs";
 };
-
 </script>
 
 <template>
-  <div class="flex flex-row sm:flex-row w-full text-center content-center justify-between items-center gap-2">
+  <div
+    class="flex flex-row sm:flex-row w-full text-center content-center justify-between items-center gap-2"
+  >
     <div class="flex items-center align-middle text-center flex-grow">
       <Input
         v-model="searchValue"
@@ -30,12 +80,13 @@ const searchJob = () => {
     </div>
     <div class="flex">
       <Button
-        type="submit"
-        class="h-[65px] bg-blue-500 hover:bg-blue-600"
         @click="searchJob"
+        type="button"
+        variant="default"
+        class="h-[65px] dark:text-white rounded-xl"
       >
         Buscar
       </Button>
-    </div> 
+    </div>
   </div>
 </template>
