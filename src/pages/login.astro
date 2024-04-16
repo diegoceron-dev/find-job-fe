@@ -1,12 +1,12 @@
 ---
 import PublicDefault from "@/layouts/public/PublicDefault.astro";
 import "@/styles/globals.css";
-import LoginAuth from "@/components/auth/LoginAuth.vue"
+import LoginAuth from "@/components/auth/LoginAuth.vue";
 ---
 
 <PublicDefault title="FindJob - Encuentra tu próximo empelo">
   <section class="animate-once animate-ease-in">
-    <LoginAuth @client:visible />
+    <LoginAuth @client:only />
   </section>
 </PublicDefault>
 

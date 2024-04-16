@@ -1,13 +1,26 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch, onBeforeMount } from "vue";
 import JobList from "./components/JobList.vue";
 import type { CardJobProps } from "@/types/card-job.type";
+import useJobStore from "@/store/job";
+
+const items = ref<CardJobProps[]>([]);
 
 onMounted(() => {
-
+  updateList();
 });
 
-const items: CardJobProps[] = []
+const updateList = () => {
+  items.value = useJobStore.getState().jobList;
+};
+
+watch(
+  () => useJobStore.getState().jobList,
+  (newValue, oldValue) => {
+    console.log("update", items.value);
+    updateList();
+  }
+);
 </script>
 
 <template>

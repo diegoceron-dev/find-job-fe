@@ -1,27 +1,27 @@
-import { create, type StoreApi } from 'zustand';
-import { usePersistedState } from '@/composables/usePersistedState';
 import type { CardJobProps } from '@/types/card-job.type';
+import { createStore} from 'zustand';
 
-interface JobStore {
+interface JobStoreState {
   jobList: CardJobProps[];
+  jobSelected: CardJobProps | null;
+}
+
+interface JobStoreActions {
   addJobList: (jobs: CardJobProps[]) => void;
   removeAllJobs: () => void;
-  jobSelected: CardJobProps | null;
   selectJob: (job: CardJobProps) => void;
   removeJobSelected: () => void;
 }
 
-const useJobStore = create<JobStore>((set) => ({
-  /* Job List */
-  jobList: [],
-  addJobList: (jobs) => set((state) => ({ jobList: jobs })),
-  removeAllJobs: () => set(() => ({ jobList: [] })),
-  /* Job Selected */
-  jobSelected: null,
-  selectJob: (job) => set(() => ({ jobSelected: job })),
-  removeJobSelected: () => set(() => ({ jobSelected: null })),
-}));
+type JobStore = JobStoreState & JobStoreActions;
 
-usePersistedState(useJobStore, 'useJobStore');
+const useJobStore = createStore<JobStore>((set) => ({
+  jobList: [],
+  addJobList: (jobs) => set((state) => ({ ...state, jobList: jobs })),
+  removeAllJobs: () => set((state) => ({ ...state, jobList: [] })),
+  jobSelected: null,
+  selectJob: (job) => set((state) => ({ ...state, jobSelected: job })),
+  removeJobSelected: () => set((state) => ({ ...state, jobSelected: null })),
+}));
 
 export default useJobStore;

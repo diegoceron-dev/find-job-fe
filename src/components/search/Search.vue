@@ -55,7 +55,6 @@ const searchValue = ref("");
 
 const searchJob = () => {
   useJobStore.getState().addJobList(items);
-  console.log(useJobStore.getState().jobList);
   if (window.location.pathname !== "/jobs") window.location.href = "/jobs";
 };
 </script>

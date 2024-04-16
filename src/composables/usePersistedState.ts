@@ -1,18 +1,24 @@
 import { onMounted, onUnmounted } from 'vue';
-import useJobStore from '@/store/job';
+import type { StoreApi } from 'zustand';
 
-type JobStoreState = ReturnType<typeof useJobStore> extends infer Store ? Store : never;
-type PersistedHook<T> = (store: T, key: string) => void;
+// Define el tipo del estado del store
+type StoreState<T> = {
+  state: T;
+  setState: (state: T) => void;
+};
 
-const usePersistedState: PersistedHook<JobStoreState> = (store, key) => {
+// Define el tipo del hook persistente
+type PersistedHook<T> = (store: StoreApi<T>, key: string) => void;
+
+const usePersistedState: PersistedHook<any> = (store, key) => {
   const saveState = () => {
-    localStorage.setItem(key, JSON.stringify(useJobStore.getState()));
+    localStorage.setItem(key, JSON.stringify(store.getState()));
   };
 
   const loadState = () => {
     const persistedState = localStorage.getItem(key);
     if (persistedState) {
-      useJobStore.setState(JSON.parse(persistedState));
+      store.setState(JSON.parse(persistedState));
     }
   };
 

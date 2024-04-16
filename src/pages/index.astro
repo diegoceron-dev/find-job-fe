@@ -14,63 +14,17 @@ import "@/styles/globals.css";
     >
       <form>
         <div class="relative">
-          <Search client:load />
+          <Search client:only />
         </div>
       </form>
     </div>
 
     <div>
-      <RecentlyAdded client:load />
+      <RecentlyAdded client:only />
     </div>
 
     <div>
-      <TopCompanies client:load />
-    </div>
-
-    <!-- Info -->
-    <div class="hidden">
-      <p
-        class="text-center text-slate-950 text-3xl hidden"
-        style="text-shadow: 0.5px 1px 0.5px gray;"
-      >
-        Con FindJob puedes aplicar a vacantes y encontrar tu próximo empleo
-      </p>
-
-      <div class="flex flex-row space-x-8 justify-evenly pt-8">
-        <div
-          class="bg-gradient-to-r from-slate-100 to-slate-50 border border-slate-200 rounded-md w-[200px] items-center align-bottom justify-center text-center h-[60px] content-center"
-        >
-          <span
-            class="text-slate-500 font-medium text-2xl"
-            style="text-shadow: 0.5px 1px 0.5px gray;"
-          >
-            Busca</span
-          >
-        </div>
-        <div
-          class="bg-gradient-to-r from-slate-100 to-slate-50 border border-slate-200 rounded-md w-[200px] items-center align-middle justify-center text-center h-[60px] content-center"
-        >
-          <span
-            class="text-slate-500 font-medium text-2xl"
-            style="text-shadow: 0.5px 1px 0.5px gray;"
-          >
-            Conecta</span
-          >
-        </div>
-        <div
-          class="bg-gradient-to-r from-slate-100 to-slate-50 border border-slate-200 rounded-md w-[200px] items-center align-bottom justify-center text-center h-[60px] content-center"
-        >
-          <span
-            class="text-slate-500 font-medium text-2xl"
-            style="text-shadow: 0.5px 1px 0.5px gray;">Retro</span
-          >
-        </div>
-      </div>
+      <TopCompanies client:only />
     </div>
   </section>
 </PublicDefault>
-
-<style>
-  main {
-  }
-</style>
