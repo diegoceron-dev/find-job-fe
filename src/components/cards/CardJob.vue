@@ -9,7 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-// import jobStore from "@/store/job.store"
+import jobStore from "@/store/job.store";
+import { computed } from "vue";
 
 interface Props {
   type: "default" | "small";
@@ -23,14 +24,22 @@ const emit = defineEmits<{
 }>();
 
 const selectItem = () => {
-  // jobStore.setJobSelected(props.item);
+  jobStore.setJobSelected(props.item);
   emit("selectItem", props.item.job.id);
 };
 
 const moreDetails = () => {
-  //jobStore.setJobSelected(props.item);
-  //window.location.href = '/jobs'
-}
+  jobStore.setJobSelected(props.item);
+  window.location.href = "/jobs";
+};
+
+const description = computed(
+  () =>
+    `${
+      props?.item.job?.description?.substring(0, props.type === "default" ? 200 : 400) ||
+      ""
+    }...`
+);
 </script>
 
 <template>
@@ -40,7 +49,7 @@ const moreDetails = () => {
   >
     <CardHeader>
       <CardTitle>{{ props?.item.job?.title }}</CardTitle>
-      <CardDescription>{{ props?.item.job?.description }}</CardDescription>
+      <CardDescription>{{ description }}</CardDescription>
     </CardHeader>
     <CardContent>
       <div class="flex flex-row w-full gap-4 text-gray-500">
@@ -49,9 +58,11 @@ const moreDetails = () => {
       </div>
     </CardContent>
     <CardFooter class="flex justify-between px-6 pb-6" v-if="$props.type === 'default'">
-      <Button 
-      @click="moreDetails"
-      type="button" variant="default" class="dark:text-white rounded-xl"
+      <Button
+        @click="moreDetails"
+        type="button"
+        variant="default"
+        class="dark:text-white rounded-xl"
         >Ver más</Button
       >
     </CardFooter>

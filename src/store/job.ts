@@ -1,5 +1,6 @@
+import { reactive, watchEffect } from 'vue';
+import usePersistentStore from './../composables/usePersistentStore';
 import type { CardJobProps } from '@/types/card-job.type';
-import { createStore} from 'zustand';
 
 interface JobStoreState {
   jobList: CardJobProps[];
@@ -15,13 +16,30 @@ interface JobStoreActions {
 
 type JobStore = JobStoreState & JobStoreActions;
 
-const useJobStore = createStore<JobStore>((set) => ({
-  jobList: [],
-  addJobList: (jobs) => set((state) => ({ ...state, jobList: jobs })),
-  removeAllJobs: () => set((state) => ({ ...state, jobList: [] })),
-  jobSelected: null,
-  selectJob: (job) => set((state) => ({ ...state, jobSelected: job })),
-  removeJobSelected: () => set((state) => ({ ...state, jobSelected: null })),
-}));
+const initialState: JobStoreState = { jobList: [], jobSelected: null };
+
+const jobStore = reactive<JobStore>({
+  ...initialState,
+  addJobList(jobs: CardJobProps[]) {
+    this.jobList = jobs;
+  },
+  removeAllJobs() {
+    this.jobList = [];
+  },
+  selectJob(job: CardJobProps) {
+    this.jobSelected = job;
+  },
+  removeJobSelected() {
+    this.jobSelected = null;
+  },
+});
+
+watchEffect(() => {
+  usePersistentStore('jobStore', jobStore);
+});
+
+const useJobStore = (): JobStore => {
+  return jobStore;
+};
 
 export default useJobStore;

@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
+    "localforage": "^1.10.0",
     "lucide-vue-next": "^0.360.0",
     "radix-vue": "^1.5.3",
     "tailwind-merge": "^2.2.2",

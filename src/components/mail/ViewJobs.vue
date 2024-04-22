@@ -11,16 +11,10 @@ onMounted(() => {
 });
 
 const updateList = () => {
-  items.value = useJobStore.getState().jobList;
+  items.value = useJobStore().jobList;
 };
 
-watch(
-  () => useJobStore.getState().jobList,
-  (newValue, oldValue) => {
-    console.log("update", items.value);
-    updateList();
-  }
-);
+watch(() => useJobStore().jobList, updateList);
 </script>
 
 <template>

@@ -8,7 +8,8 @@ const items = ref<CardJobProps[]>([
   {
     company: { id: 1, name: "Company x" },
     job: {
-      description: "Vacante disponible para desarrollador frontend",
+      description:
+        "Vacante disponible para desarrollador frontend. ¡Únete a nuestro equipo en Company X y conviértete en un experto en desarrollo frontend! Estamos buscando a alguien apasionado por crear experiencias de usuario sorprendentes y funcionales. En este emocionante rol, tendrás la oportunidad de trabajar en proyectos innovadores, colaborar con un equipo talentoso y contribuir al éxito de nuestros productos digitales. Si te apasiona el diseño web, el desarrollo de aplicaciones y la resolución de problemas creativos, ¡esta oportunidad es para ti!",
       id: 1,
       place: "MX",
       salary: "31000",
@@ -18,7 +19,8 @@ const items = ref<CardJobProps[]>([
   {
     company: { id: 2, name: "Company y" },
     job: {
-      description: "Vacante disponible para desarrollador backend",
+      description:
+        "Vacante disponible para desarrollador backend. ¿Te apasiona el desarrollo backend y estás buscando un nuevo desafío emocionante? ¡Entonces únete a nosotros en Company Y! Estamos en busca de un desarrollador backend altamente motivado y con experiencia para unirse a nuestro equipo dinámico. En este rol, tendrás la oportunidad de trabajar en proyectos emocionantes, colaborar con un equipo talentoso y contribuir al desarrollo de soluciones innovadoras. Si tienes habilidades sólidas en programación y te encanta resolver problemas complejos, ¡esperamos conocerte!",
       id: 2,
       place: "US",
       salary: "40000",
@@ -28,7 +30,8 @@ const items = ref<CardJobProps[]>([
   {
     company: { id: 3, name: "Company z" },
     job: {
-      description: "Vacante disponible para diseñador UX/UI",
+      description:
+        "Vacante disponible para diseñador UX/UI. ¿Eres un apasionado del diseño de interfaces de usuario y estás buscando un nuevo desafío emocionante? ¡Entonces esta oportunidad es para ti! En Company Z, estamos en busca de un diseñador UX/UI talentoso y creativo para unirse a nuestro equipo innovador. En este rol, tendrás la oportunidad de diseñar experiencias de usuario atractivas y funcionales, colaborar con equipos multidisciplinarios y contribuir al desarrollo de productos de vanguardia. Si tienes habilidades sólidas en diseño de interfaces de usuario y una pasión por la innovación, ¡esperamos conocerte!",
       id: 3,
       place: "CA",
       salary: "35000",
@@ -38,7 +41,8 @@ const items = ref<CardJobProps[]>([
   {
     company: { id: 1, name: "Company x" },
     job: {
-      description: "Vacante disponible para desarrollador frontend",
+      description:
+        "Vacante disponible para desarrollador frontend. ¡Únete a nuestro equipo en Company X y conviértete en un experto en desarrollo frontend! Estamos buscando a alguien apasionado por crear experiencias de usuario sorprendentes y funcionales. En este emocionante rol, tendrás la oportunidad de trabajar en proyectos innovadores, colaborar con un equipo talentoso y contribuir al éxito de nuestros productos digitales. Si te apasiona el diseño web, el desarrollo de aplicaciones y la resolución de problemas creativos, ¡esta oportunidad es para ti!",
       id: 1,
       place: "MX",
       salary: "31000",

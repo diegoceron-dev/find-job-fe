@@ -1,14 +1,15 @@
-import { ref, watch } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 
-const usePersistentStore = (storeName: string, initialState: any) => {
-    const storedState = localStorage.getItem(storeName);
-    const state = ref(storedState ? JSON.parse(storedState) : initialState);
+const usePersistentStore = (storeName: string, state: any) => {
+    localStorage.setItem(storeName, JSON.stringify(state));
+
+    watchEffect(() => {
+        localStorage.setItem(storeName, JSON.stringify(state));
+    });
 
     watch(state, (newValue) => {
         localStorage.setItem(storeName, JSON.stringify(newValue));
     }, { deep: true });
-
-    return state;
 };
 
 export default usePersistentStore;

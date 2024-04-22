@@ -31,7 +31,7 @@ const isCollapsed = ref(props.defaultCollapsed);
 const selectedMail = ref<number | undefined>(props.jobs[0]?.job.id);
 const searchValue = ref("");
 const debouncedSearch = refDebounced(searchValue, 250);
-const jobList = useJobStore.getState().jobList;
+const jobList = useJobStore().jobList;
 
 onMounted(() => {
   console.log(jobList);
@@ -57,10 +57,6 @@ function onCollapse() {
 function onExpand() {
   isCollapsed.value = false;
 }
-
-/* watch(jobStore, (newX) => {
-  console.log(`x is ${newX}`);
-}); */
 </script>
 
 <template>
