@@ -6,7 +6,6 @@ import { onMounted, ref, watch } from "vue";
 import useJobStore from "@/store/job";
 import type { CardJobProps } from "@/types/card-job.type";
 
-
 const items = ref<CardJobProps[]>([
   {
     company: { id: 1, name: "Company x" },
@@ -54,21 +53,20 @@ const items = ref<CardJobProps[]>([
   },
 ]);
 
-
 onMounted(() => {});
 
 const searchValue = ref("");
 
 const searchJob = () => {
   useJobStore().addJobList(items.value);
-  console.log(useJobStore().jobList);
-  if (window.location.pathname !== "/jobs") window.location.href = "/jobs";
+  /*   console.log(useJobStore().jobList);
+  if (window.location.pathname !== "/jobs") window.location.href = "/jobs"; */
 };
 </script>
 
 <template>
   <div
-    class="flex flex-row sm:flex-row w-full text-center content-center justify-between items-center gap-2"
+    class="flex flex-row sm:flex-row w-full text-center content-start justify-between items-center gap-2"
   >
     <div class="flex items-center align-middle text-center flex-grow">
       <Input
@@ -80,9 +78,6 @@ const searchJob = () => {
         autocomplete="off"
         autofocus
       />
-      <span class="absolute start-0 inset-y-0 flex items-center justify-center px-2">
-        <Search class="size-6 text-muted-foreground" />
-      </span>
     </div>
     <div class="flex">
       <Button

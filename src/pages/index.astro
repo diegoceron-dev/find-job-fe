@@ -1,24 +1,25 @@
 ---
 import RecentlyAdded from "@/components/cards/RecentlyAdded.vue";
 import TopCompanies from "@/components/cards/TopCompanies.vue";
+import ViewJobs from "@/components/mail/ViewJobs.vue";
 import Search from "@/components/search/Search.vue";
 import PublicDefault from "@/layouts/public/PublicDefault.astro";
 import "@/styles/globals.css";
 ---
 
 <PublicDefault title="FindJob - Encuentra tu próximo empelo">
-  <section class="animate-once animate-ease-in">
+  <section class="animate-once animate-ease-in pl-12 pr-12 pt-4">
     <!-- Search -->
     <div
       class="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60"
     >
       <form>
-        <div class="relative">
+        <div class="">
           <Search client:only />
+          <ViewJobs client:only />
         </div>
       </form>
     </div>
-
     <div>
       <RecentlyAdded client:only />
     </div>

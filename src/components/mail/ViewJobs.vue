@@ -18,7 +18,7 @@ watch(() => useJobStore().jobList, updateList);
 </script>
 
 <template>
-  <div class="flex-col md:flex">
+  <div class="flex-col md:flex" v-if="items.length > 0">
     <JobList :jobs="items" :nav-collapsed-size="4" />
   </div>
 </template>

@@ -30,13 +30,12 @@ const selectItem = () => {
 
 const moreDetails = () => {
   jobStore.setJobSelected(props.item);
-  window.location.href = "/jobs";
 };
 
 const description = computed(
   () =>
     `${
-      props?.item.job?.description?.substring(0, props.type === "default" ? 200 : 400) ||
+      props?.item.job?.description?.substring(0, props.type === "default" ? 100 : 180) ||
       ""
     }...`
 );
@@ -49,7 +48,7 @@ const description = computed(
   >
     <CardHeader>
       <CardTitle>{{ props?.item.job?.title }}</CardTitle>
-      <CardDescription>{{ description }}</CardDescription>
+      <CardDescription> {{ description }}</CardDescription>
     </CardHeader>
     <CardContent>
       <div class="flex flex-row w-full gap-4 text-gray-500">

@@ -4,9 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/vue";
 import ModeToggle from "@/components/theme/ModeToggle.vue";
 
-const handleClick = () => {
+const goToLogin = () => {
   if (window.location.pathname !== "/login") window.location.href = "/login";
 };
+
+const goToIndex = () => {
+  if (window.location.pathname !== "/") window.location.href = "/";
+};
+
 </script>
 <template>
   <!-- component -->
@@ -14,8 +19,8 @@ const handleClick = () => {
     class="dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-500 bg-gradient-to-r from-blue-500 to-blue-400 border-b border-blue-300 dark:border-slate-500 w-full flex relative justify-between items-center mx-auto px-8 h-20"
   >
     <!-- logo -->
-    <div class="inline-flex">
-      <a class="_o6689fn" href="/"
+    <div class="inline-flex cursor-pointer">
+      <a class="_o6689fn" @click="goToIndex"
         ><img
           src="https://i.ibb.co/1ZZsTcz/Sin-ti-tulo-3-removebg-preview.png"
           alt="logo"
@@ -30,7 +35,7 @@ const handleClick = () => {
     <!-- login -->
     <div class="flex-auto">
       <div class="flex justify-end items-center relative">
-        <Button variant="secondary" @click="handleClick">
+        <Button variant="secondary" @click="goToLogin">
           <Icon
             icon="radix-icons:person"
             class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"

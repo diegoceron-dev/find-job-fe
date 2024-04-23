@@ -24,7 +24,7 @@ interface JobListProps {
 
 const props = withDefaults(defineProps<JobListProps>(), {
   defaultCollapsed: true,
-  defaultLayout: () => [265, 440, 655],
+  defaultLayout: () => [270, 755],
 });
 
 const isCollapsed = ref(props.defaultCollapsed);
@@ -57,6 +57,22 @@ function onCollapse() {
 function onExpand() {
   isCollapsed.value = false;
 }
+
+const addApply = () => {};
+
+const addTrash = () => {};
+
+const addBookmark = () => {};
+
+const nextJob = () => {
+  const index = props.jobs.findIndex((item) => item.job.id === selectedMail.value);
+  selectedMail.value = props.jobs[index + 1].job.id ?? props.jobs[index].job.id;
+};
+
+const prevJob = () => {
+  const index = props.jobs.findIndex((item) => item.job.id === selectedMail.value);  
+  selectedMail.value = props.jobs[index - 1].job.id ?? props.jobs[index].job.id;
+};
 </script>
 
 <template>
@@ -64,21 +80,11 @@ function onExpand() {
     <ResizablePanelGroup
       id="resize-panel-group-1"
       direction="horizontal"
-      class="h-full max-h-[1000px] items-stretch"
+      class="h-full items-stretch"
     >
-      <ResizablePanel id="resize-panel-2" :default-size="defaultLayout[1]" :min-size="30">
+      <ResizablePanel id="resize-panel-2" :default-size="defaultLayout[0]" :min-size="20">
         <Tabs default-value="all">
-          <Separator />
-          <div
-            class="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-          >
-            <form>
-              <div class="relative">
-                <Search />
-              </div>
-            </form>
-          </div>
-          <TabsContent value="all" class="m-0">
+          <TabsContent value="all" class="m-0 pt-4">
             <MailList v-model:selected-mail="selectedMail" :items="filteredMailList" />
           </TabsContent>
         </Tabs>
@@ -86,8 +92,15 @@ function onExpand() {
 
       <ResizableHandle id="resiz-handle-2" with-handle />
 
-      <ResizablePanel class="" id="resize-panel-3" :default-size="defaultLayout[2]">
-        <MailDisplay :item="selectedMailData" />
+      <ResizablePanel class="pt-4" id="resize-panel-3" :default-size="defaultLayout[1]">
+        <MailDisplay
+          @add-apply="addApply"
+          @add-bookmark="addBookmark"
+          @add-trash="addTrash"
+          @prev-job="prevJob"
+          @next-job="nextJob"
+          :item="selectedMailData"
+        />
       </ResizablePanel>
     </ResizablePanelGroup>
   </TooltipProvider>

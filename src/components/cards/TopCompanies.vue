@@ -49,7 +49,7 @@ onMounted(() => {
     >
       <template v-if="loading">
         <div v-for="(item, index) in 4" :key="index">
-          <div class="p-4 space-y-4 rounded-xl">
+          <div class="space-y-4 rounded-xl">
             <Skeleton class="h-[125px]" />
             <div class="mt-2 space-y-2">
               <Skeleton class="h-4 w-[250px]" />
@@ -59,7 +59,7 @@ onMounted(() => {
         </div>
       </template>
       <template v-else>
-        <div class="p-4 space-y-4 rounded-xl" v-for="item in items">
+        <div class="pt-4 space-y-4 rounded-xl" v-for="item in items">
           <CardCompany  :id="item.id"  :name="item.name" class="w-full" />
         </div>
       </template>

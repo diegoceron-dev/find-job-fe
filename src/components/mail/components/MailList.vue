@@ -17,7 +17,7 @@ const updateItemSelected = (jobId: number) => {
 
 <template>
   <ScrollArea class="h-screen flex">
-    <div class="flex-1 flex flex-col gap-2 p-4 pt-0">
+    <div class="flex-1 flex flex-col gap-2 pr-3">
       <TransitionGroup name="list" appear>
         <CardJob
           v-for="item of items"
